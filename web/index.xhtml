@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+<!--  When you make your own projects, copy and rename sample-file-with-form.xhtml
+      or sample-file-no-form.xhtml. Don't copy and rename THIS file, because
+      this file has too many extraneous things in it. -->
+<h:head>
+<title>JSF 2.2: Blank Starting-Point Project</title>
+<link href="./css/styles.css" 
+      rel="stylesheet" type="text/css"/> 
+</h:head>
+<h:body>
+<h:form>
+        Login:
+    <h:panelGrid columns="3">
+        Korisničko ime: 
+        <h:inputText value="#{urednikBean.korisnickoIme}" 
+                     required="true"
+                     requiredMessage="Morate uneti korisnicko ime!"
+                     id="korisnickoIme"/>
+        <h:message for="korisnickoIme"/>
+	Korisnička šifra: 
+        <h:inputSecret value="#{urednikBean.korisnickaSifra}" 
+                       required="true"
+                       requiredMessage="Morate uneti korisnicku sifru!"
+                       id="korisnickaSifra"/>
+        <h:message for="korisnickaSifra"/>
+    </h:panelGrid>
+	<h:commandButton action="#{urednikBean.ulogujSe}" value="Uloguj se"/>
+        <h:messages/>
+</h:form>
+
+
+</h:body></html>
