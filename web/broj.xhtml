@@ -1,0 +1,43 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:b="http://bootsfaces.net/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:utils="http://xmlns.jcp.org/jsf/composite/utils"
+                template="/templates/glavni-templejt.xhtml">
+    <ui:define name="title">Unos novog broja</ui:define>
+    <ui:define name="content">
+        <b:row>
+            <b:column span="6" offset="2">
+                
+                <h:form>
+                    <p:growl id="message" showDetail="true" sticky="false" life="3000"/>
+                    <utils:broj value="#{unosBrojaBean.brojBean}"/>
+                    <p:commandButton value="Kreiraj novi broj" update="@form" process="@this" actionListener="#{unosBrojaBean.kreirajNoviBroj}" styleClass="redTabele"/>
+                    <p:commandButton value="Sacuvaj broj" update="@form,message,:formaClanak" process="@form" action="#{unosBrojaBean.sacuvajBroj}" styleClass="redTabele"/> 
+                </h:form>
+            </b:column>
+        </b:row>
+        <b:row>
+            <b:column span="10" offset="1">
+                <p:panel header="Unos članka" style="margin-top: 10px;">
+                    <h:form id="formaClanak">
+                        <utils:clanak value="#{unosBrojaBean.brojBean}"/>
+                        <div style="padding-top: 10px; text-align: center; vertical-align: middle;"><p:commandButton value="Dodaj clanak" update="@form" process="@form" actionListener="#{unosBrojaBean.dodajClanak}" style="display: inline;"/></div>
+                        
+                        <p:dataList rendered="#{unosBrojaBean.brojBean.clanci.size() > 0}" id="dlClanci" value="#{unosBrojaBean.brojBean.clanci}" var="cl" itemType="none" paginator="true" rows="20" styleClass="paginated">
+                            <f:facet name="header">
+                                Članci
+                            </f:facet>
+                            <h:outputText value="#{cl.naslov}, #{unosBrojaBean.brojBean.parseHTML(cl.sadrzaj)}, #{cl.kategorija.naziv}" style="display:inline-block"/>
+                        </p:dataList>
+ 
+                    </h:form>
+                </p:panel>
+            </b:column>
+
+        </b:row>
+
+    </ui:define>
+</ui:composition>

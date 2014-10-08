@@ -1,0 +1,36 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Sep 10, 2014, 9:00:28 PM
+    Author     : stefan
+*/
+
+body {
+    background:transparent url("#{resource['images:newspaper-background.jpg']}") padding-box;
+    background-size: 100% 900px;
+}
+.container {
+    background-color: white;
+    height: auto;
+    min-height: 700px;
+    max-width: 900px;
+}
+.redTabele {
+    margin: 5px;
+    padding: 1px;
+    
+}
+tr {
+    height: 30px;
+}
+.ui-selectonemenu-trigger {
+    width: 22px!important; 
+}
+
+.datePicker {
+    margin-left: -1px!important;
+    margin-right: -2px!important;
+}
