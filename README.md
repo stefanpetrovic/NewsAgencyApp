@@ -1,3 +1,3 @@
 # NewsAgencyApp
 
-Bachelor's thesis project
+Bachelor thesis project
